@@ -1,4 +1,4 @@
-package linked.list.doubl;
+package structures.linked.list.doubl;
 
 public class Node<T> {
     private T data;

@@ -1,4 +1,6 @@
-package linked.list.simple;
+package structures.linked.list.simple;
+
+import structures.stack.Stack;
 
 import java.util.NoSuchElementException;
 
@@ -42,7 +44,7 @@ public class SimpleLinkedList<T> {
         int counter = 0;
 
         if (this.head == null)
-            throw new IllegalStateException("The list must be initialized to do this operation");
+            throw new IllegalStateException("The structures.linked.list must be initialized to do this operation");
 
         else if (index < 0 || index > getSize())
             throw new IndexOutOfBoundsException("The index is out of range");
@@ -67,13 +69,13 @@ public class SimpleLinkedList<T> {
     //---------------------------------Delete Operations--------------------------------------//
     public void deleteFirst(){
         if (this.head == null)
-            throw new NoSuchElementException("No elements to remove from the list");
+            throw new NoSuchElementException("No elements to remove from the structures.linked.list");
         else
             this.head = this.head.getNext();
     }
     public void deleteLast(){
         if (this.head == null)
-            throw new NoSuchElementException("No elements to remove from the list");
+            throw new NoSuchElementException("No elements to remove from the structures.linked.list");
         else if (this.head.getNext() == null)
             this.head = null;
         else{
@@ -106,13 +108,13 @@ public class SimpleLinkedList<T> {
 
     public T getFirst(){
         if (this.head == null)
-            throw new IndexOutOfBoundsException("The list is empty");
+            throw new IndexOutOfBoundsException("The structures.linked.list is empty");
         return this.head.getData();
     }
 
     public T getLast(){
         if (this.head == null)
-            throw new IndexOutOfBoundsException("The list is empty");
+            throw new IndexOutOfBoundsException("The structures.linked.list is empty");
         Node<T> tempNode = this.head;
         for (int i = 1; i < getSize(); i++)
             tempNode = tempNode.getNext();
@@ -121,7 +123,7 @@ public class SimpleLinkedList<T> {
 
     public  T getAtIndex(int index) {
         if (this.head == null)
-            throw new IndexOutOfBoundsException("The list is empty");
+            throw new IndexOutOfBoundsException("The structures.linked.list is empty");
         if (index < 0 || index >= getSize())
             throw new IndexOutOfBoundsException("The index is out of range");
         Node<T> tempNode = this.head;
@@ -146,17 +148,61 @@ public class SimpleLinkedList<T> {
         return this.head == null;
     }
 
+
+    public void reverseListWithStack(){
+        Stack<T> stack = new Stack<>();
+        Node<T> tempNode = this.head;
+        for (int i = 0; i < getSize(); i++){
+            stack.push(tempNode.getData());
+            tempNode = tempNode.getNext();
+        }
+        this.head = null;
+        for (int i = 0; i < getSize(); i++){
+            insertLast(stack.pop());
+        }
+    }
+
+    public void reverseList(){
+        Node<T> prevNode = null;
+        Node<T> currentNode = this.head;
+        Node<T> nextNode = this.head.getNext();
+        for (int i = 0; i < getSize() - 1; i++){  
+            currentNode.setNext(prevNode);
+            prevNode = currentNode;
+            currentNode = nextNode;
+            nextNode = nextNode.getNext();
+        }
+        currentNode.setNext(prevNode);
+        this.head = currentNode;
+    }
+
+    public void printList(Node<T> node) {
+        if (node == null) {
+            System.out.println("The structures.linked.list is empty");
+            return; // Agrega un return para evitar que continúe ejecutándose
+        }
+
+        if (node.getNext() != null) {
+            System.out.println(node.getData().toString());
+            printList(node.getNext());
+        } else {
+            System.out.println(node.getData().toString());
+        }
+    }
+
+
+
     //---------------------------Set Operations------------------------------------//
 
     public void setFirst(T data){
         if (this.head == null)
-            throw new IllegalStateException("The list must be initialized");
+            throw new IllegalStateException("The structures.linked.list must be initialized");
         this.head.setData(data);
     }
 
     public void setLast(T data){
         if (this.head == null)
-            throw new IllegalStateException("The list must be initialized");
+            throw new IllegalStateException("The structures.linked.list must be initialized");
         Node<T> tempNode = this.head;
         for (int i = 1; i < getSize(); i++)
             tempNode = tempNode.getNext();
@@ -165,7 +211,7 @@ public class SimpleLinkedList<T> {
 
     public void setAtIndex(T data, int index){
         if (this.head == null)
-            throw new IllegalStateException("The list must be initialized");
+            throw new IllegalStateException("The structures.linked.list must be initialized");
         if (index < 0 || index >= getSize())
             throw new IndexOutOfBoundsException("The index is out of range");
         Node<T> tempNode = this.head;

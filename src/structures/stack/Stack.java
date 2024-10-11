@@ -1,4 +1,4 @@
-package stack;
+package structures.stack;
 
 public class Stack<T> {
 

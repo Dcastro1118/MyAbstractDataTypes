@@ -1,4 +1,4 @@
-package queue;
+package structures.queue;
 
 public class Queue<T> {
 
@@ -28,7 +28,7 @@ public class Queue<T> {
 
     public T deQueue(){
         if (this.head == null)
-            throw new IllegalStateException("The queue is empty");
+            throw new IllegalStateException("The structures.queue is empty");
         else{
             Node <T> tempNode = this.head;
             Node <T> returnNode;
@@ -45,7 +45,7 @@ public class Queue<T> {
 
     public T front(){
         if (this.tail == null)
-            throw new IllegalStateException("The list is empty");
+            throw new IllegalStateException("The structures.linked.list is empty");
         return this.tail.getData();
     }
 

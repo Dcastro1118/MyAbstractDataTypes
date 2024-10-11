@@ -1,4 +1,4 @@
-package list;
+package structures.linked.list;
 
 public class MyArrayList<T> {
     Object[] elementsArray;

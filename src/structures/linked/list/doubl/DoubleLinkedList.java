@@ -1,4 +1,4 @@
-package linked.list.doubl;
+package structures.linked.list.doubl;
 
 public class DoubleLinkedList<T> {
 
@@ -66,7 +66,7 @@ public class DoubleLinkedList<T> {
 
     public void deleteFirst(){
         if (this.head == null)
-            throw new IllegalStateException("The list is empty");
+            throw new IllegalStateException("The structures.linked.list is empty");
         this.head = this.head.getNext();
         this.head.setPrevious(null);
 
@@ -79,7 +79,7 @@ public class DoubleLinkedList<T> {
 
     public void deleteLast() {
         if (this.head == null)
-            throw new IllegalStateException("the list is empty");
+            throw new IllegalStateException("the structures.linked.list is empty");
         if (this.tail.getPrevious() == null) {
             this.tail = null;
             this.head = null;
@@ -92,7 +92,7 @@ public class DoubleLinkedList<T> {
     public void deleteAtIndex(int index) {
         int size = getSize();
         if (this.head == null)
-            throw new IllegalStateException("The list is empty");
+            throw new IllegalStateException("The structures.linked.list is empty");
         if (index < 0 || index >= size)
             throw new IndexOutOfBoundsException("Index out of range");
         Node<T> tempNode = this.head;
@@ -112,19 +112,19 @@ public class DoubleLinkedList<T> {
 
     public T getFirst(){
         if (this.head == null)
-            throw new IndexOutOfBoundsException("The list is empty");
+            throw new IndexOutOfBoundsException("The structures.linked.list is empty");
         return this.head.getData();
     }
 
     public T getLast(){
         if (this.head == null)
-            throw new IndexOutOfBoundsException("The list is empty");
+            throw new IndexOutOfBoundsException("The structures.linked.list is empty");
         return this.tail.getData();
     }
 
     public  T getAtIndex(int index) {
         if (this.head == null)
-            throw new IndexOutOfBoundsException("The list is empty");
+            throw new IndexOutOfBoundsException("The structures.linked.list is empty");
         if (index < 0 || index >= getSize())
             throw new IndexOutOfBoundsException("The index is out of range");
         Node<T> tempNode = this.head;
@@ -146,13 +146,13 @@ public class DoubleLinkedList<T> {
 
     public void setFirst(T data){
         if (this.head == null)
-            throw new IllegalStateException("The list must be initialized");
+            throw new IllegalStateException("The structures.linked.list must be initialized");
         this.head.setData(data);
     }
 
     public void setLast(T data){
         if (this.head == null)
-            throw new IllegalStateException("The list must be initialized");
+            throw new IllegalStateException("The structures.linked.list must be initialized");
         Node<T> tempNode = this.head;
         for (int i = 1; i < getSize(); i++)
             tempNode = tempNode.getNext();
@@ -161,7 +161,7 @@ public class DoubleLinkedList<T> {
 
     public void setAtIndex(T data, int index){
         if (this.head == null)
-            throw new IllegalStateException("The list must be initialized");
+            throw new IllegalStateException("The structures.linked.list must be initialized");
         if (index < 0 || index >= getSize())
             throw new IndexOutOfBoundsException("The index is out of range");
         Node<T> tempNode = this.head;

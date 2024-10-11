@@ -1,4 +1,4 @@
-package queue;
+package structures.queue;
 
 public class ArrayQueue<T> {
     Object[] elementsArray;
@@ -23,7 +23,7 @@ public class ArrayQueue<T> {
     @SuppressWarnings("unchecked")
     public T DeQueue(){
         if (size == 0)
-            throw new IllegalStateException("The queue is empty");
+            throw new IllegalStateException("The structures.queue is empty");
         T tempData = (T) this.elementsArray[size-1];
         this.elementsArray[size - 1] = null;
         size--;
@@ -33,7 +33,7 @@ public class ArrayQueue<T> {
     @SuppressWarnings("unchecked")
     public T front(){
         if (size == 0)
-            throw new IllegalStateException("The queue is empty");
+            throw new IllegalStateException("The structures.queue is empty");
         return (T) this.elementsArray[size-1];
 
     }
