@@ -5,7 +5,7 @@ public class MyArrayList<T> {
     int size;
     int capacity;
 
-    public MyArrayList(Class<T> t){
+    public MyArrayList(){
         this.capacity = 10;
         this.elementsArray = new Object[capacity];
         this.size = 0;

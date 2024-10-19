@@ -2,9 +2,7 @@ package algorithms;
 
 import structures.stack.ArrayStack;
 import structures.stack.Stack;
-
-import java.util.Arrays;
-
+ 
 public class StackAlgorithms {
 
 
